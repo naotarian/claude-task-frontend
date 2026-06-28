@@ -38,6 +38,7 @@ Types:         src/types/generated.d.ts （バックエンドから自動生成�
 ## Git / ブランチ運用
 
 - ブランチ戦略: `main`（本番）/ `develop`（統合）/ `feature/*`。`feature/*` は `develop` から切り、PR で `develop` へマージ。リリース時に `develop` → `main`。
+- `feature/*` は**必ず最新の `develop` から切る**（事前に `git switch develop && git pull` で最新化してからブランチ作成）。
 - `main` / `develop` へ直接コミットしない（必ず `feature/*` で作業）。
 - **コミット前に `npm run lint` / `npx tsc --noEmit` / `npm run test:run` / `NODE_ENV=production npm run build` が通ることを確認する**。
 
