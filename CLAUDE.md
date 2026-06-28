@@ -35,6 +35,12 @@ Types:         src/types/generated.d.ts （バックエンドから自動生成�
 - 厳密な型付け（`any` は使わず `unknown` を使う）
 - エラーは握りつぶさず、意味のあるメッセージ付きで処理する
 
+## Git / ブランチ運用
+
+- ブランチ戦略: `main`（本番）/ `develop`（統合）/ `feature/*`。`feature/*` は `develop` から切り、PR で `develop` へマージ。リリース時に `develop` → `main`。
+- `main` / `develop` へ直接コミットしない（必ず `feature/*` で作業）。
+- **コミット前に `npm run lint` / `npx tsc --noEmit` / `npm run test:run` / `NODE_ENV=production npm run build` が通ることを確認する**。
+
 ## テスト
 
 - Vitest + Testing Library（jsdom）。`make front-test`（カバレッジ）または単体: `docker compose run --rm --no-deps node npm run test:run -- src/lib/gantt.test.ts`。

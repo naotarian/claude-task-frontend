@@ -19,6 +19,7 @@ function VerifyEmailInner() {
   const [message, setMessage] = useState("");
   const ran = useRef(false);
 
+  // マウント時に一度だけ検証を実行
   useEffect(() => {
     if (ran.current) return;
     ran.current = true;
