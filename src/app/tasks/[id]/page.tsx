@@ -46,6 +46,7 @@ function TaskDetail({ taskId }: { taskId: number }) {
   const [categoryId, setCategoryId] = useState<number | "">("");
   const [customValues, setCustomValues] = useState<Record<number, unknown>>({});
 
+  // サーバから取得したタスクでフォームを初期化
   useEffect(() => {
     if (!task.data) return;
     const t = task.data;
